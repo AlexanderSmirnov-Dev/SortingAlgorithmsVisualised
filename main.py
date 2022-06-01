@@ -59,7 +59,9 @@ def selection_sort(given_list):
         given_list[mini_last_index],given_list[i] = given_list[i],given_list[mini_last_index]
         draw_list(given_list)
 
-#need to make it work for lists of odd length. Tricky w/ using two pointers
+# need to make it work for lists of not 2^n. Tricky w/ using two pointers
+# possible solution -> find if length of last loop > length of remaining list.
+# set last loop length to length of remaining list
 def merge_sort(given_list):  # in place merge sort, non-recursive
     num_iter = round(math.log2(len(given_list))) - 1
     for i in range(num_iter + 1):
