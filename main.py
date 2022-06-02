@@ -15,7 +15,7 @@ upper_padding = 50
 colours = ["#B35512","#CB6015","#D96716"]
 
 # running config
-list_length = 128
+list_length = 64
 min_val = 0
 max_val = 100
 sleep_length = 0.01
@@ -81,6 +81,15 @@ def merge_sort(given_list):  # in place merge sort, non-recursive
                     starter_pointer += 1
                 draw_list(given_list)
 
+def bubble_sort(given_list):
+    any_swaps = True
+    while any_swaps:
+        any_swaps = False
+        for i in range(1,len(given_list)):
+            if given_list[i-1] > given_list[i]:
+                given_list[i-1],given_list[i] = given_list[i],given_list[i-1]
+                any_swaps = True
+                draw_list(given_list)
 
 
 while running: # main game loop
@@ -91,7 +100,7 @@ while running: # main game loop
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
                 unsorted_list = random_list(list_length, min_val, max_val)
-                merge_sort(unsorted_list)
+                bubble_sort(unsorted_list)
     pygame.display.update()
 
 
